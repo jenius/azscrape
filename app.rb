@@ -1,9 +1,7 @@
 require 'rubygems'
-require 'sinatra'
-require 'json'
-require 'nokogiri'
+require 'bundler'
 require 'open-uri'
-require 'haml'
+Bundler.require(:default)
 
 # Set Sinatra variables
 set :app_file, __FILE__
