@@ -29,7 +29,7 @@ get '/:query/:pages' do
     doc.css('div.product').each do |el|
       title = el.css('a.title').first.content
       author = el.css('.ptBrand a').empty? ? el.css('.ptBrand').first.content.gsub!(/by /, '') : el.css('.ptBrand a').first.content
-      image = el.css('.productImage').attribute 'src'
+      image = el.css('.productImage').attribute('src').to_s.gsub /\._(.*)\.jpg/, '.jpg'
       link = el.css('a.title').attribute 'href'
 
       results << { :title => title, :author => author, :img => image, :link => link }
