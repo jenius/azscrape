@@ -1,0 +1,31 @@
+!!! 5
+%html
+%head
+  %title AzScrape
+  %link{ :rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" }
+  %link{ :rel => 'stylesheet', :href => '/style.css' }
+%body
+
+  .container
+    .content
+      .page-header
+        %h1 
+          AzScrape
+          %small An unofficial read-only api for amazon products
+
+      %p
+        %strong How to use:
+        Just hit this page again with the url format /query/number_of_pages</p>
+
+      %p So, for example, this query:
+
+      %pre http://azscrape.dev/ruby_on_rails/3
+
+      %p ...would return 3 pages of amazon's results of a search for "ruby on rails". As you can see here, underscores are converted into spaces if necessary.
+      
+      %p The API currently will return the product title, author, image url, and amazon.com url.
+
+      %p This is a super simple project, and if you would like it to return anything else or act in a different way, let me know or drop a pull request!
+
+      %span.label.warning Warning
+      %em The more pages you try to return, the slower it will load. I would very highly recommend not asking for more than 5 at a time - each page returns 18 results.
