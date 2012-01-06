@@ -9,11 +9,11 @@ A quick and easy way to integrate amazon product search results into your web ap
 
 Threw up a quick example of how it works here: http://glowing-river-2250.heroku.com/
 
-## Installation
+### Installation
 
 It's just a little sinatra app. Clone the repo, run `bundle`, run `shotgun`, and you're good to go.
 
-## Usage
+### Usage
 
 Once running, just hit the page with this url structure `/query/number_of_pages`
 
