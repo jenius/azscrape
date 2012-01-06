@@ -1,6 +1,6 @@
 AzScrape
 ========
-### An unofficial read-only api for amazon products
+### A ruby wrapper for amazon product search
 
 ## Installation
 
