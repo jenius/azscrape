@@ -5,6 +5,10 @@ AzScrape
 
 A quick and easy way to integrate amazon product search results into your web app. It functions much like an API - you put in a search query, how many pages of results you want, and it returns the list of products and details formatted as json.
 
+### Example
+
+Threw up a quick example of how it works here: http://glowing-river-2250.heroku.com/
+
 ## Installation
 
 It's just a little sinatra app. Clone the repo, run `bundle`, run `shotgun`, and you're good to go.
