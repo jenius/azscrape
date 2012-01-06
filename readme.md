@@ -7,7 +7,7 @@ A quick and easy way to integrate amazon product search results into your web ap
 
 ### Example
 
-Threw up a quick example of how it works here: http://glowing-river-2250.heroku.com/
+Threw up a quick example of how it works here: http://www.azscrape.jenius.me/
 
 ### Installation
 
