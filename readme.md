@@ -19,7 +19,7 @@ Once running, just hit the page with this url structure `/query/number_of_pages`
 
 So, for example, this query:
 
-`http://azscrape.dev/ruby_on_rails/3`
+`http://www.azscrape.jenius.me/ruby_on_rails/3`
 
 ...would return 3 pages of amazon's results of a search for "ruby on rails" (18 results per page). As you can see here, underscores are converted into spaces if necessary.
 
