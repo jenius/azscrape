@@ -51,7 +51,7 @@
     $('.autocomplete').autocomplete({
       source: function(req, res) {
         $.ajax({
-          url: "http://localhost:9393/" + req.term.replace(/\s/g, "_") + "/1",
+          url: "http://www.azscrape.jenius.me/" + req.term.replace(/\s/g, "_") + "/1",
           dataType: "json",
           success: function(raw) {
             var data = [];
@@ -62,5 +62,8 @@
           }
         });
       },
-      minLength: 3
+      minLength: 2,
+      select: function(event, ui) {
+        console.log(ui)
+      }
     })
