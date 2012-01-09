@@ -44,7 +44,8 @@
       %br
 
       %input.autocomplete
-
+  
+  %script{ :src => "http://jenius.me/mint/?js" }
   %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" }
   %script{ :src => "/autocomplete/autocomplete.js" }
   :javascript
@@ -67,3 +68,12 @@
         console.log(ui)
       }
     })
+
+    var _gaq = [['_setAccount', 'UA-19293164-1'], ['_trackPageview']];
+    (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+    })(document, 'script');
