@@ -10,6 +10,24 @@ set :views, 'views'
 set :public_folder, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
 
+
+# This little block eliminates cross origin request blocking,
+# although I should be careful with this
+configure do
+  class << Sinatra::Base
+    def options(path, opts={}, &block)
+      route 'OPTIONS', path, opts, &block
+    end
+  end
+  Sinatra::Delegator.delegate :options
+end
+
+options '/' do
+  response.headers["Access-Control-Allow-Origin"] = "*"
+  response.headers["Access-Control-Allow-Methods"] = "POST"
+  halt 200
+end
+
 get '/' do
   haml :index
 end
@@ -25,7 +43,7 @@ get '/:query/:pages' do
   pages.times do
 
     doc = Nokogiri::HTML(open("http://www.amazon.com/s/field-keywords=#{query}?page=#{iterator}"))
-    
+
     doc.css('div.product').each do |el|
 
       title = el.css('a.title').first.content
@@ -41,7 +59,7 @@ get '/:query/:pages' do
           author = el.css('.ptBrand a').first.content
         end
       end
-      
+
       image = el.css('.productImage').attribute('src').to_s.gsub(/\._(.*)\.jpg/, '.jpg')
       link = el.css('a.title').attribute 'href'
 

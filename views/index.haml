@@ -4,6 +4,7 @@
   %title AzScrape
   %link{ :rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" }
   %link{ :rel => 'stylesheet', :href => '/style.css' }
+  %link{ :rel => 'stylesheet', :href => '/autocomplete/autocomplete.css' }
 %body
 
   .container
@@ -34,3 +35,32 @@
       
       %a{ :href => "https://github.com/jenius/azscrape" }
         %img{ :style => "position: absolute; top: 0; left: 0; border: 0;", :src => "https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67", :alt => "Fork me on GitHub" }
+      %br
+      %br
+      %strong Here's an example of a potential usage with an autocomplete field:
+      %br
+      %em (give it a second to load after typing, 3 characters before it kicks in)
+      %br
+      %br
+
+      %input.autocomplete
+
+  %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" }
+  %script{ :src => "/autocomplete/autocomplete.js" }
+  :javascript
+    $('.autocomplete').autocomplete({
+      source: function(req, res) {
+        $.ajax({
+          url: "http://localhost:9393/" + req.term.replace(/\s/g, "_") + "/1",
+          dataType: "json",
+          success: function(raw) {
+            var data = [];
+            $.each(raw, function(){
+              data.push( this.title + " by " + this.author );
+            })
+            res(data);
+          }
+        });
+      },
+      minLength: 3
+    })
